@@ -36,13 +36,15 @@ function initMap() {
         position: new google.maps.LatLng(libs[i][1], libs[i][2]),
         map: map,
         icon: image,
+        animation: google.maps.Animation.DROP,
         title: libs[i][0]
       });
     allMarkers.push(marker);
   }
   for (i = 0; i < allMarkers.length; i++) {
     google.maps.event.addListener(allMarkers[i], 'click', function() {
-          infowindow.setContent(simpleLibrary(this.getTitle(), "https://americanlibrariesmagazine.org/wp-content/uploads/2017/08/design-moffitt-1.jpg", "23", "50", "10", "Monday", true, true));
+          map.setCenter(this.getPosition());
+          infowindow.setContent(simpleLibrary(this.getTitle()));
           infowindow.open(map, this);
     });
   }

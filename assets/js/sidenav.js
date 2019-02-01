@@ -5,3 +5,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("sidenav").style.width = "0vw";
 }
+
+function seeMore() {
+  openNav();
+}
